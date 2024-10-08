@@ -26,10 +26,15 @@ const getWordOfTheDay = () => {
 // Define the '/get-word' endpoint
 app.get('/get-word', (req, res) => {
   const wordOfTheDay = getWordOfTheDay();
-  res.json({ word: wordOfTheDay });
+  return res.json({ word: wordOfTheDay });
+});
+app.get('/', (req, res) => {
+  return res.json({ message: 'Welcome to WOTD' });
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Wordle API listening at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Wordle API listening at http://localhost:${port}`);
+// });
+
+module.exports = app;
